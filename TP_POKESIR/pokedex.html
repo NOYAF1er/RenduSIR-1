@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Pokésir</h1>
+
+    <div style="display: flex" ng-controller="pokedexsearch">
+        <!-- Search -->
+        <div style="flex: 1 1 0">
+            <spam> Id ou nom du pokémon souhaité </spam>
+            <input type="text" ng-model="nom"> </input>
+            </br>
+
+
+
+            <select ng-model="nom"> 
+        <option ng-repeat="pokel in listpoke | filter:nom">{{pokel.name}}</option>
+        </select>
+
+
+            <button ng-click="get()">Go!</button>
+            <div></div>
+
+        </div>
+        <!-- Pokémon information -->
+        <div style="flex: 1 1 0" ng-controller="pokedexsearch">
+            <div ng-if="recherche">
+            <p>Le nom de ce pokemon est : {{nombis}}</p>
+            <p>Son numero national dans le pokedex est : {{id}} </p>
+            <img src="{{image_avant}}"> </img>
+            <img src="{{image_arriere}}"> </img>
+
+            <br />
+            <p>{{nombis}} peut apprendre les attaques suivantes: </p>
+            <li ng-repeat="a in atk">{{a.move.name}}</li>
+            
+            </div>
+        </div>
+    </div>
